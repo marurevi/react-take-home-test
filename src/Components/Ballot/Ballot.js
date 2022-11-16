@@ -1,15 +1,9 @@
-import React,{useEffect, useState} from 'react';
+import React from 'react';
 
-const Ballot = () => {
-  const [ballot, setBallot] = useState([]);
-  useEffect(() => {apiCall()},[])
-  const apiCall = async() => {
-    await fetch('/api/getBallotData').then(res => {
-      return res.json();
-    }).then(data => { setBallot(data.items) });
-  }
+const Ballot = (props) => {
+  const { ballot } = props;
   console.log('ballot', ballot);
-  
+    
   return (
     <div className='ballot'>
       {ballot && ballot.map((item) => {
